@@ -8,12 +8,14 @@ export default function ComingSoon() {
   const [text, setText] = useState('');
 
   useEffect(() => {
-    const loc = window.location?.host
-      ? window.location?.host
-      : window.location?.hostname;
-    const content = loc === 'www.shailendra.xyz' ? 'shailendra.xyz' : '<../>';
+    let loc;
+    if (window) {
+      loc = window.location?.host
+        ? window.location?.host
+        : window.location?.hostname;
+    }
+    const content = loc.includes('shailendra.xyz') ? 'shailendra.xyz' : '<../>';
     setText(content);
-    console.log(loc);
   }, []);
 
   useEffect(() => {
