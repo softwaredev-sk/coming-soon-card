@@ -26,5 +26,6 @@ body {
       )
       center / var(--dot-space) var(--dot-space),
     var(--dot-color);
+
   overflow: hidden;
 }

@@ -13,14 +13,24 @@ export default function ComingSoon() {
       rotateElement(e, pre);
     });
 
+    document.addEventListener('touchmove', (e) => {
+      rotateElement(e, pre);
+    });
+
     page.addEventListener('click', () => {
       handleClick(null, page);
     });
 
     function rotateElement(event, element) {
-      // get mouse position
-      const x = event.clientX;
-      const y = event.clientY;
+      // get mouse position (touch position in event of touchmove)
+      const x =
+        event?.type === 'mousemove'
+          ? event?.clientX
+          : event?.touches[0].clientX;
+      const y =
+        event?.type === 'mousemove'
+          ? event?.clientY
+          : event?.touches[0].clientY;
 
       // find the middle
       const middleX = window.innerWidth / 2;
@@ -33,13 +43,14 @@ export default function ComingSoon() {
       // set rotation
       element.style.setProperty('--rotateX', offsetX + 'deg');
       element.style.setProperty('--rotateY', -1 * offsetY + 'deg');
+      //set background particle properties
       document.body.style.setProperty(
         '--dot-space',
         Math.abs(offsetX) + Math.abs(offsetY) + 50 + 'px'
       );
       document.body.style.setProperty(
         '--dot-size',
-        Math.abs(offsetY / 25) + 1 + 'px'
+        Math.abs(offsetX / 25) + Math.abs(offsetY / 25) + 1 + 'px'
       );
     }
   }, []);
