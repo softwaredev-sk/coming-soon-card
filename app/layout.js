@@ -8,7 +8,7 @@ export const metadata = {
   description:
     "Hi, I'm Shailendra. I'm a Software Developer who has a knack to create digital products using JavaScript and loves to see the world going digital. Feel free to connect to hire. Thank You!",
   keywords:
-    'Portfolio, Software Developer, Front End Developer, Full Stack Developer, ReactJS Developer, NextJS Developer, MERN Developer',
+    'Portfolio, Software Developer, Front End Developer, Full Stack Developer, ReactJS Developer, NextJS Developer, MERN Developer, Bachhrawan',
 };
 
 export default function RootLayout({ children }) {

@@ -1,10 +1,21 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './ComingSoon.module.css';
 import party from 'party-js';
 import Link from 'next/link';
 
 export default function ComingSoon() {
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    const loc = window.location?.host
+      ? window.location?.host
+      : window.location?.hostname;
+    const content = loc === 'www.shailendra.xyz' ? 'shailendra.xyz' : '<../>';
+    setText(content);
+    console.log(loc);
+  }, []);
+
   useEffect(() => {
     const pre = document.querySelector('pre');
     const page = document.querySelector('#page');
@@ -66,7 +77,7 @@ export default function ComingSoon() {
       <div className={styles.soon}>Coming Soon</div>
       <div className={styles.title}>
         <Link href="/" className={styles.a}>
-          shailendra.xyz
+          {text}
         </Link>
       </div>
     </pre>
