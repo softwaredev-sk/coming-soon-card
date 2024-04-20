@@ -1,0 +1,16 @@
+.nopointer {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 100;
+  color: white;
+  text-shadow: 0 0 1em white;
+  font-size: 1rem;
+  width: 50%;
+}
+
+@media (pointer: fine) {
+  .nopointer {
+    display: none;
+  }
+}
