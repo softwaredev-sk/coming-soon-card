@@ -23,28 +23,22 @@ export default function ComingSoon() {
     const page = document.querySelector('#page');
 
     document.addEventListener('mousemove', (e) => {
-      rotateElement(e, pre);
+      const x = e.clientX;
+      const y = e.clientY;
+      rotateElement(x, y, pre);
     });
 
     document.addEventListener('touchmove', (e) => {
-      rotateElement(e, pre);
+      const x = e.touches[0].clientX;
+      const y = e.touches[0].clientY;
+      rotateElement(x, y, pre);
     });
 
     page.addEventListener('click', () => {
       handleClick(null, page);
     });
 
-    function rotateElement(event, element) {
-      // get mouse position (touch position in event of touchmove)
-      const x =
-        event?.type === 'mousemove'
-          ? event?.clientX
-          : event?.touches[0].clientX;
-      const y =
-        event?.type === 'mousemove'
-          ? event?.clientY
-          : event?.touches[0].clientY;
-
+    function rotateElement(x, y, element) {
       // find the middle
       const middleX = window.innerWidth / 2;
       const middleY = window.innerHeight / 2;
